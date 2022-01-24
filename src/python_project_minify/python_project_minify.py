@@ -55,8 +55,6 @@ def directory(src, dst):
                         continue
 
                 ## Static path ignore
-                print(os.path.normpath(curdir)[1:] + os.sep + filename)
-                print(ignore)
                 if os.path.normpath(curdir)[1:] + os.sep + filename in ignore:
                     continue
 

@@ -27,6 +27,10 @@ It's simple, just provide a source and destination path:
 
     python_project_minify.directory('path/to/src', 'path/to/dst')
 
+If you are providing paths with backslashes instead of forwardslashes like the example above, make sure to pass it with the `r` prefix. This way it will be treated as a raw string and won't throw an error.
+
+    python_project_minify.directory(r'path\to\src', r'path\to\dst')
+
 ### Ignoring files and folders:
 Create a file called `.ppmignore` in the root of your project.
 

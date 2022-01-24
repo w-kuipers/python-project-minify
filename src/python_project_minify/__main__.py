@@ -16,7 +16,6 @@ def main():
 
     args = parser.parse_args()
 
-    print(directory)
     directory(args.src,args.dst)
 
 if __name__ == '__main__':
