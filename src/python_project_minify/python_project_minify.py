@@ -20,29 +20,38 @@ def directory(src, dst):
 
         curdir_list = curdir.split('\\')
 
-        ## ignore in roots
-        if curdir_list[0] in ignore:
+        ## Ignore in root
+        if '/{}'.format(curdir_list[0]) in ignore:
             continue
 
         ## Wildcard ignores
         should_skip = False
         for sub in curdir_list:
-            if '*{}'.format(sub) in ignore:
+            if '*/{}'.format(sub) in ignore:
                 should_skip = True
                 continue
         if should_skip:
             continue
 
         ## Generate directory
-        newdir = os.path.abspath(dst)+os.sep + curdir
+        newdir = os.path.abspath(dst) + os.sep + curdir
         if not os.path.exists(newdir):
             os.mkdir(newdir)
 
         ## Create loop from files in folder
-        filedir = os.path.abspath(src)+os.sep + curdir
+        filedir = os.path.abspath(src) + os.sep + curdir
         for file in os.listdir(filedir):
             if not os.path.isdir(os.path.join(filedir, file)):
                 filename = os.fsdecode(file)
+
+                ## Ignore in root
+                if filedir == os.path.abspath(src) + os.sep:
+                    if filename in ignore:
+                        continue
+
+                ## Wildcard ignores
+                if '*{}'.format(filename) in ignore:
+                    continue
 
                 ## If Python file, minify
                 if filename.endswith(".py"):
