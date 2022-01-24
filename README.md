@@ -27,6 +27,21 @@ It's simple, just provide a source and destination path:
 
     python_project_minify.directory('path/to/src', 'path/to/dst')
 
+### Ignoring files and folders:
+Create a file called `.ppmignore` in the root of your project.
+
+    ## Ignore file in root
+    file.txt
+
+    ## Wildcard ignore file
+    *file.txt
+
+    ## Ignore folder in root
+    /folder
+
+    ## Wildcard ignore folder
+    */folder
+
 ## Support
 
 If you found a problem with the software, please [create an issue](https://github.com/w-kuipers/python-project-minify/issues) on GitHub.
