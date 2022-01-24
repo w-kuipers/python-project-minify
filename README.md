@@ -1,7 +1,7 @@
 # Python Project Minify
 
-[![GitHub releases](https://img.shields.io/github/v/release/w-kuipers/simpleUID)](https://github.com/w-kuipers/python-project-minify/releases)
-[![PyPI release](https://img.shields.io/pypi/v/simpleUID.svg)](https://pypi.org/project/python-project-minify/)
+[![GitHub releases](https://img.shields.io/github/v/release/w-kuipers/python-project-minify)](https://github.com/w-kuipers/python-project-minify/releases)
+[![PyPI release](https://img.shields.io/pypi/v/python-project-minify.svg)](https://pypi.org/project/python-project-minify/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Compile your python project into the most compact version it can be. 
