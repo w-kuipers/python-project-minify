@@ -18,6 +18,7 @@ def get_list(ignore_file):
             ignore.append(l.strip())
 
     ## Add .ppmignore to list
-    ignore.append('*.ppmignore')
+    if not 'PRESERVE_PPMIGNORE' in ignore:
+        ignore.append('*.ppmignore')
 
     return ignore

@@ -42,6 +42,9 @@ Create a file called `.ppmignore` in the root of your project.
     ## Wildcard ignore folder
     */folder
 
+    ## If for some reason it's necessary to keep the .ppmignore file in the destination folder
+    PRESERVE_PPMIGNORE
+
 ## Support
 
 If you found a problem with the software, please [create an issue](https://github.com/w-kuipers/python-project-minify/issues) on GitHub.
