@@ -33,11 +33,17 @@ Create a file called `.ppmignore` in the root of your project.
     ## Ignore file in root
     file.txt
 
+    ## Ignore specific file
+    folder/subfolder/file.txt
+
     ## Wildcard ignore file
     *file.txt
 
     ## Ignore folder in root
     /folder
+
+    ## Ignore specific folder
+    /folder/subfolder
 
     ## Wildcard ignore folder
     */folder

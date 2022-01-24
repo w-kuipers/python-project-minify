@@ -15,7 +15,7 @@ def get_list(ignore_file):
             if l == '\n' or l.lstrip()[0] == '#': ## Ignore empty lines and commented lines
                 continue
 
-            ignore.append(l.strip())
+            ignore.append(os.path.normpath(l.strip()))
 
     ## Add .ppmignore to list
     if not 'PRESERVE_PPMIGNORE' in ignore:
