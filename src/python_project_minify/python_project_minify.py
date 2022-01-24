@@ -1,7 +1,7 @@
 import os
 import python_minifier
 from ignore import get_list
-import collections
+from shutil import copyfile
 
 def directory(src, dst):
     
@@ -41,13 +41,21 @@ def directory(src, dst):
         ## Create loop from files in folder
         filedir = os.path.abspath(src)+os.sep + curdir
         for file in os.listdir(filedir):
-            filename = os.fsdecode(file)
-            if filename.endswith(".py"): 
-                
-                with open(filedir + os.sep + filename) as f:
-                    minified = python_minifier.minify(f.read())
+            if not os.path.isdir(os.path.join(filedir, file)):
+                filename = os.fsdecode(file)
 
-                with open(newdir + os.sep + filename, 'w') as f:
-                    f.write(minified)
+                ## If Python file, minify
+                if filename.endswith(".py"):
+                    
+                    with open(filedir + os.sep + filename) as f:
+                        minified = python_minifier.minify(f.read())
+
+                    with open(newdir + os.sep + filename, 'w') as f:
+                        f.write(minified)
+                    continue
+                    
+                ## If not Python file, just copy
+                copyfile(filedir + os.sep + filename, newdir + os.sep + filename)
+
         
 directory('C:/Users/wibo-/Desktop/FMM/TESTS/', 'C:/Users/wibo-/Desktop/FMM/TEMP')
