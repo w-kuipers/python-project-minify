@@ -19,6 +19,14 @@ Note the `pip` refers to the Python 3 package manager. In environment where Pyth
 
 ## Usage
 
+### In console
+
+Run the `minify-project` command in the terminal. It takes two arguments `src` and `dst`.
+
+    minify-project path/to/src path/to/dst
+
+### Python API
+
 Import python_project_minify:
 
     import python_project_minify
