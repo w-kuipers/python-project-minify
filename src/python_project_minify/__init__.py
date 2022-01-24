@@ -1,0 +1,1 @@
+from python_project_minify import directory
