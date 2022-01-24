@@ -1,6 +1,5 @@
 import argparse
-import sys
-from .python_project_minify import directory
+from python_project_minify.python_project_minify import directory
 
 from pkg_resources import get_distribution, DistributionNotFound
 
@@ -17,13 +16,8 @@ def main():
 
     args = parser.parse_args()
 
-    sys.stdout.write(
-        directory(
-            args.src,
-            args.dst
-        )
-    )
-
+    print(directory)
+    directory(args.src,args.dst)
 
 if __name__ == '__main__':
     main()

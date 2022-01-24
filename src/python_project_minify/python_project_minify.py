@@ -76,3 +76,5 @@ def directory(src, dst):
                     
                 ## If not Python file, just copy
                 copyfile(filedir + os.sep + filename, newdir + os.sep + filename)
+
+    return
