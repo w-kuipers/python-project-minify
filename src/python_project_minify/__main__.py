@@ -1,26 +1,26 @@
 import argparse
 import sys
-from python_project_minify import directory
+from .python_project_minify import directory
 
 from pkg_resources import get_distribution, DistributionNotFound
 
 try:
-    version = get_distribution('python_project_minify').version
+    __version__ = get_distribution('python_project_minify').version
 except DistributionNotFound:
-    version = '0.0.0'
-
-print(version)
+    __version__ = '0.0.0'
 
 def main():
 
     parser = argparse.ArgumentParser(prog='minifyProject', description='Minify Python Project Source')
-    parser.add_argument('path', type=str, help='The projects source directory')
+    parser.add_argument('src', type=str, help='The project source directory')
+    parser.add_argument('dst', type=str, help='The minified project destination directory')
 
     args = parser.parse_args()
 
     sys.stdout.write(
         directory(
-            args.path,
+            args.src,
+            args.dst
         )
     )
 

@@ -13,13 +13,16 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/w-kuipers/python-project-minify",
     project_urls={
-        "Bug Tracker": "https://github.com/w-kuipers/simpleUID/issues",
+        "Bug Tracker": "https://github.com/w-kuipers/python-project-minify/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    entry_points = {
+        'console_scripts': ['minify-project=python_project_minify.__main__:main']
+    },
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",

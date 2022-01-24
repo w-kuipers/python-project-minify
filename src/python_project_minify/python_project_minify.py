@@ -1,8 +1,8 @@
 import os
 import python_minifier
-from ignore import get_list
 from shutil import copyfile
 from pathlib import Path
+from .ignore import get_list
 
 def directory(src, dst):
     
@@ -76,6 +76,3 @@ def directory(src, dst):
                     
                 ## If not Python file, just copy
                 copyfile(filedir + os.sep + filename, newdir + os.sep + filename)
-
-        
-directory('C:/Users/wibo-/Desktop/FMM/TESTS/', 'C:/Users/wibo-/Desktop/FMM/TEMP')
