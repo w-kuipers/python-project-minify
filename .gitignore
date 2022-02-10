@@ -2,6 +2,7 @@
 /venv
 /dist
 /build
+/test
 
 *.egg-info
 test.py

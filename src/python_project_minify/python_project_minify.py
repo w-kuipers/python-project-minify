@@ -1,8 +1,10 @@
+from importlib.resources import path
 import os
 import python_minifier
 from shutil import copyfile
 from pathlib import Path
 from .ignore import get_list
+from .progress_bar import print_progress_bar
 
 def directory(src, dst):
     
@@ -13,8 +15,18 @@ def directory(src, dst):
     ## Get a list of files to be ignored
     ignore = get_list('{}/.ppmignore'.format(src))
 
+    ## Generate path list
+    path_list = os.walk(src, topdown=True)
+
+    ## Initialize progressbar
+    path_list_length = len([folder for folder in os.listdir(src) if os.path.isdir(os.path.join(src, folder))])
+
+    print_progress_bar(0, path_list_length, prefix = 'Progress:', suffix = 'Complete', length = 50)
+
     ## Create a loop from src directory
-    for root, dirs, files in os.walk(src, topdown=True):
+    for i, root_dirs_files in enumerate(path_list):
+
+        root = root_dirs_files[0]
 
         ## Don't need absolute path
         curdir = root.replace(os.path.normpath(src), '')
@@ -46,6 +58,7 @@ def directory(src, dst):
         ## Create loop from files in folder
         filedir = os.path.abspath(src) + curdir
         for file in os.listdir(filedir):
+
             if not os.path.isdir(os.path.join(filedir, file)) and os.path.isdir(Path(newdir).parent.absolute()):
                 filename = os.fsdecode(file)
 
@@ -74,5 +87,8 @@ def directory(src, dst):
                     
                 ## If not Python file, just copy
                 copyfile(filedir + os.sep + filename, newdir + os.sep + filename)
+
+
+        print_progress_bar(i + 1, path_list_length, prefix = 'Progress:', suffix = 'Complete', length = 50)
 
     return
