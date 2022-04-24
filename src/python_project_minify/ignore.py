@@ -21,4 +21,5 @@ def get_list(ignore_file):
     if not 'PRESERVE_PPMIGNORE' in ignore:
         ignore.append('*.ppmignore')
 
+    #### Return a list of paths to ignore
     return ignore
