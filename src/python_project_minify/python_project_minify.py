@@ -3,8 +3,8 @@ import os
 import python_minifier
 from shutil import copyfile
 from pathlib import Path
-from .ignore import get_list
-from .progress_bar import print_progress_bar
+from ignore import get_list
+from progress_bar import print_progress_bar
 
 def directory(src, dst):
     

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="python-project-minify",
-    version="0.1.0",
+    version="1.0.0",
     author="Wibo Kuipers",
     author_email="w.kuipers@filmage.nl",
     description="A quick way to compile your Python project into it's most compact form. Built on the great python-minify package.",
