@@ -1,6 +1,6 @@
 from shutil import copyfile
 from pathlib import Path
-from ignore import get_list
+from .ignore import get_list ## Remove dot for dev
 from tqdm import tqdm
 from colorama import init, Fore
 import os
