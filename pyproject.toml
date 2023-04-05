@@ -2,6 +2,7 @@
 requires = [
     "setuptools>=42",
     "wheel",
-    "python-minifier"
+    "python-minifier",
+    "tqdm"
 ]
 build-backend = "setuptools.build_meta"
