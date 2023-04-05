@@ -1,12 +1,11 @@
-from importlib.resources import path
-import os
-import python_minifier
 from shutil import copyfile
 from pathlib import Path
 from ignore import get_list
-from progress_bar import print_progress_bar
+from tqdm import tqdm
+import os
+import python_minifier
 
-def directory(src, dst):
+def directory(src, dst):   
     
     ## Format paths
     src = os.path.abspath(src)+os.sep
@@ -16,15 +15,20 @@ def directory(src, dst):
     ignore = get_list('{}/.ppmignore'.format(src))
 
     ## Generate path list
-    path_list = os.walk(src, topdown=True)
+    path_list = list(enumerate(os.walk(src, topdown=True)))
+
+    ## Calculate amount of files to process
+    amount_to_process = 0
+    for i, root_dirs_files in path_list:
+        amount_to_process += 1
 
     ## Initialize progressbar
-    path_list_length = len([folder for folder in os.listdir(src) if os.path.isdir(os.path.join(src, folder))])
-
-    print_progress_bar(0, path_list_length, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    progress_bar = tqdm(0, total=amount_to_process, desc="Processing files", leave=False)
 
     ## Create a loop from src directory
-    for i, root_dirs_files in enumerate(path_list):
+    for i, root_dirs_files in path_list:
+
+        progress_bar.update(1)
 
         root = root_dirs_files[0]
 
@@ -89,6 +93,7 @@ def directory(src, dst):
                 copyfile(filedir + os.sep + filename, newdir + os.sep + filename)
 
 
-        print_progress_bar(i + 1, path_list_length, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    progress_bar.close()
+    print("\nMinified.")
 
     return
