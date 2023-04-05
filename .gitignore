@@ -1,5 +1,6 @@
 # Virtual environment/dist
 /venv
+/testvenv
 /dist
 /build
 /test

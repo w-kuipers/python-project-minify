@@ -2,8 +2,12 @@ from shutil import copyfile
 from pathlib import Path
 from ignore import get_list
 from tqdm import tqdm
+from colorama import init, Fore
 import os
 import python_minifier
+
+## Initialize colorama
+init(autoreset=True)
 
 def directory(src, dst):   
     
@@ -94,6 +98,6 @@ def directory(src, dst):
 
 
     progress_bar.close()
-    print("\nMinified.")
+    print(Fore.GREEN + "\nMinified.")
 
     return
