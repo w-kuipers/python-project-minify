@@ -6,7 +6,7 @@ from pkg_resources import get_distribution, DistributionNotFound
 try:
     __version__ = get_distribution('python_project_minify').version
 except DistributionNotFound:
-    __version__ = '1.0.0'
+    __version__ = '1.0.1'
 
 def main():
 

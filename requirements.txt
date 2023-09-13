@@ -1,2 +1,3 @@
 python-minifier
 tqdm
+colorama
